@@ -41,7 +41,7 @@ The two repos are tracked as a single program on a shared [GitHub Project board]
 
 ## Engineering posture
 
-**Stack.** TypeScript end-to-end. Next.js 14 (App Router) for both marketing and application. [SST v4](https://sst.dev) defines all AWS resources in code — CloudFront, Lambda, DynamoDB, SQS, EventBridge, IAM — and deploys them via Pulumi. Clerk handles authentication. Cloudflare handles DNS, WAF, and Turnstile. Resend handles transactional email.
+**Stack.** TypeScript end-to-end. Next.js 16 (App Router) for both marketing and application. [SST v4](https://sst.dev) defines all AWS resources in code — CloudFront, Lambda, DynamoDB, SQS, EventBridge, IAM — and deploys them via Pulumi. Clerk handles authentication. Cloudflare handles DNS, WAF, and Turnstile. Resend handles transactional email.
 
 **Data.** DynamoDB single-table design across four tables (`Tweets`, `Aggregates`, `Tokens`, `UserData`) with named GSIs (`TopK`, `ByAuthor`, `SpikingByDelta`, `WatchlistByMentions`) tuned for the actual access patterns the product needs. Every access pattern is a typed key-builder; no inline `pk`/`sk` strings.
 
